@@ -1,1 +1,158 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Datapoint Description</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #ai-info-content {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 40px;
+    }
+    #ai-info-content h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    #ai-info-content .topic-badge {
+      display: inline-block;
+      background-color: #007bff;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+    #ai-info-content p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.7;
+    }
+    #ai-info-content .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #ai-info-content .back-link:hover {
+      text-decoration: underline;
+    }
+    #ai-info-content .not-found {
+      color: #cc0000;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Datapoint Description</h1>
+  </header>
+ 
+  <section id="ai-info-content">
+    <!-- The datapoint's description will be inserted here -->
+  </section>
+ 
+  <footer>
+    <p style="font-size: 12px; color: #777;">Made by Anirudh Bhamidipati</p>
+  </footer>
+ 
+  <script>
+    const allDatapoints = [
+      // Robotics
+      { topic: "Robotics", datapoint: "Autonomous Navigation", description: "Navigation algorithms for underwater robots to operate autonomously in the ocean." },
+      { topic: "Robotics", datapoint: "Obstacle Avoidance", description: "Algorithms that help underwater robots avoid obstacles like rocks and marine life." },
+      { topic: "Robotics", datapoint: "Data Collection and Analysis", description: "Algorithms to gather and analyze environmental data from the ocean." },
+      { topic: "Robotics", datapoint: "Marine Species Identification", description: "AI-powered computer vision to identify marine species from underwater imagery." },
+      { topic: "Robotics", datapoint: "Environmental Change Detection", description: "Monitors and detects changes in underwater ecosystems, tracking long-term ocean health." },
+      // Computer Vision
+      { topic: "Computer Vision", datapoint: "Image Classification", description: "Classifies underwater images into categories like fish, coral species, etc." },
+      { topic: "Computer Vision", datapoint: "Object Detection", description: "Detects objects in underwater images, such as fish, coral, and submerged objects." },
+      { topic: "Computer Vision", datapoint: "Real-time Object Tracking", description: "Tracks moving objects (e.g., fish, underwater robots) in real-time." },
+      { topic: "Computer Vision", datapoint: "Scene Reconstruction", description: "Reconstructs 3D models of underwater environments from images captured by robots or drones." },
+      { topic: "Computer Vision", datapoint: "Pose Estimation", description: "Estimates the position and orientation of robots in underwater settings." },
+      // Machine Learning
+      { topic: "Machine Learning", datapoint: "Linear Regression", description: "Predicts stock prices based on historical data." },
+      { topic: "Machine Learning", datapoint: "K-Means Clustering", description: "Groups financial data into clusters based on similarities." },
+      { topic: "Machine Learning", datapoint: "Random Forest", description: "A decision-tree-based model for risk assessment and financial forecasting." },
+      { topic: "Machine Learning", datapoint: "Support Vector Machine", description: "A supervised machine learning model used for classification tasks in financial data analysis." },
+      { topic: "Machine Learning", datapoint: "Neural Networks", description: "Deep learning models for predicting financial outcomes and trends." }
+    ];
+ 
+    
+    const params = new URLSearchParams(window.location.search);
+    const topicParam = params.get("topic");
+    const datapointParam = params.get("datapoint");
+ 
+    const section = document.getElementById("ai-info-content");
+ 
+    if (datapointParam) {
+      
+      const match = allDatapoints.find(item =>
+        item.datapoint.toLowerCase() === datapointParam.toLowerCase()
+      );
+ 
+      if (match) {
+        section.innerHTML = `
+          <h2>${match.datapoint}</h2>
+          <span class="topic-badge">${match.topic}</span>
+          <p>${match.description}</p>
+          <a class="back-link" href="index.html">&larr; Back to Catalog</a>
+        `;
+      } else {
+        section.innerHTML = `
+          <p class="not-found">Datapoint not found.</p>
+          <a class="back-link" href="index.html">&larr; Back to Catalog</a>
+        `;
+      }
+    } else if (topicParam) {
+      
+      const topicMap = {
+        "robotics": "Robotics",
+        "computer-vision": "Computer Vision",
+        "machine-learning": "Machine Learning"
+      };
+ 
+      const topicDescriptions = {
+        "Robotics": "I believe that combining robotics with artificial intelligence is crucial for advancing a wide range of fields. One of the fields that I have picked up interest in as of recently is Marine Biology where I'm curious in researching how to leverage AI-driven robotics to enhance the exploration and data collection in marine environments, particularly in regions that are challenging to access or study through regular exploration methods. By making use of AI technologies into robotic systems, we can significantly improve the efficiency, accuracy, and scope of data collected from the ocean, enabling deeper insights into marine ecosystems. This collaboration between AI and robotics holds the potential to drive transformative advancements in ocean research, which helps in understanding and preserving the health of the oceans. Through the integration of intelligent systems, I aim to contribute to the development of autonomous underwater vehicles and tools that will revolutionize how we gather and analyze data from the ocean, ultimately promoting the growth of marine science and conservation efforts.",
+        "Computer Vision": "Computer vision, supported by artificial intelligence, plays a pivotal role in advancing research and discovery across various fields. Recently, I became intrigued by an innovative concept I encountered in a research article about a ProActive VideoLLM for Real-Time AI companions. This idea connects with my interest in the video game Fortnite, a game I've been playing for nearly a decade. I've developed a research concept that combines AI and computer vision to create an intelligent companion capable of guiding competitive players through high-level Fortnite lobbies. By integrating machine learning with computer vision, the AI companion can assist players in navigating complex in-game strategies, offering real-time suggestions, and improving their overall performance. I am confident that this concept can have broader applications beyond gaming. The same principles of real-time decision-making and visual analysis could be applied to other important research areas. For example, I believe that high-level computer vision, supported by AI, can also be instrumental in marine biology. It could be used to analyze and gather data from the ocean, particularly in areas that are difficult to explore. This integration of AI in both gaming and marine research shows the diversity of these technologies and their potential to thrive in multiple fields.",
+        "Machine Learning": "Having worked with machine learning for several years, I have developed a deep appreciation for its pivotal role in advancing both research and AI development. The field continues to fascinate me, especially its applications in areas such as the ProActive VideoLLM for Real-Time AI companions that I've been exploring. Additionally, I have become increasingly interested in how machine learning can be leveraged within the financial sector, particularly in parallel with data analysis. Given the growth of finance and the growing reliance on AI for data-driven decision-making, I am curious to explore how machine learning models can be applied to analyze financial data, predict market trends, and enhance investment strategies. Over the past few years, I have gained valuable experience in this area, and I am excited to build on that knowledge. By developing and refining more reliable models, I hope to deepen my understanding of both the theoretical and practical applications of machine learning in finance, further contributing to the ongoing advancement of AI technologies in this space."
+      };
+ 
+      const topicName = topicMap[topicParam.toLowerCase()];
+      const topicDatapoints = allDatapoints.filter(item => item.topic === topicName);
+ 
+      if (topicDatapoints.length > 0) {
+        let html = `<h2>${topicName}</h2>`;
+        html += `<p style="color:#555; line-height:1.8; margin-bottom:30px; border-bottom: 2px solid #eee; padding-bottom:20px;">${topicDescriptions[topicName]}</p>`;
+        html += `<h3 style="margin-bottom:15px;">Datapoints</h3>`;
+        topicDatapoints.forEach(item => {
+          html += `
+            <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+              <h3 style="margin-bottom: 5px;">${item.datapoint}</h3>
+              <p style="margin: 0;">${item.description}</p>
+            </div>
+          `;
+        });
+        html += `<a class="back-link" href="index.html">&larr; Back to Catalog</a>`;
+        section.innerHTML = html;
+      } else {
+        section.innerHTML = `
+          <p class="not-found">No datapoints found for this topic.</p>
+          <a class="back-link" href="index.html">&larr; Back to Catalog</a>
+        `;
+      }
+    } else {
+      section.innerHTML = `
+        <p class="not-found">No topic or datapoint specified.</p>
+        <a class="back-link" href="index.html">&larr; Back to Catalog</a>
+      `;
+    }
+  </script>
+</body>
+</html>
