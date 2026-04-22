@@ -1,31 +1,69 @@
 <!doctype html>
-<html>
-  <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
-    <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
-  </head>
-
-  <body>
-    <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
-    </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artificial Intelligence Catalog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Artificial Intelligence Catalog</h1>
+  </header>
+ 
+  <section class="panel-container">
+    <!-- Robotics Panel -->
+    <div class="panel">
+      <img src="https://www.hydro-international.com/cache/b/e/5/7/4/be57478ee67e0f970246ea2a9a60b96a5c3cc30f.jpeg" alt="Robotics" class="panel-image">
+      <div class="panel-content">
+        <h3>Robotics</h3>
+        <a href="ai-info.html?topic=robotics" class="panel-button">Go to Robotics</a>
       </div>
     </div>
-    <div class="footer">
-      <button onclick="quoteAlert()">Get A Quote!</button>
-      <button onclick="removeLastCard()">Remove A Card!</button>
+ 
+    <!-- Computer Vision Panel -->
+    <div class="panel">
+      <img src="https://www.simplilearn.com/ice9/article_detailed_content_img/expert-talk-data-science-data-analytics-machine-learning.jpg" alt="Machine Learning" class="panel-image">
+      <div class="panel-content">
+        <h3>Computer Vision</h3>
+        <a href="ai-info.html?topic=computer-vision" class="panel-button">Go to Computer Vision</a>
+      </div>
     </div>
-  </body>
+ 
+    <!-- Machine Learning Panel -->
+    <div class="panel">
+      <img src="https://www.algotive.ai/hubfs/00%20Blog/Qu%C3%A9%20es%20la%20visi%C3%B3n%20artificial%20y%20c%C3%B3mo%20funciona%20con%20la%20inteligencia%20artificial/Computervision_banner.jpg" alt="Artificial Intelligence" class="panel-image">
+      <div class="panel-content">
+        <h3>Machine Learning</h3>
+        <a href="ai-info.html?topic=machine-learning" class="panel-button">Go to Machine Learning</a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Search and Sort Section -->
+  <div style="text-align: center; padding: 20px;">
+    <div style="display: flex; justify-content: center; gap: 20px;">
+      <input type="text" id="searchBar" placeholder="Search for a datapoint..." onkeyup="searchData()" onkeydown="searchSubmit(event)">
+      <button onclick="showSortPopup()">Sort by Datapoint</button>
+    </div>
+  </div>
+ 
+  <!-- Sort Modal -->
+  <div id="sortModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeSortPopup()">&times;</span>
+      <h2>Sort Datapoints</h2>
+      <ul id="sortList">
+        <!-- Datapoint links will be inserted here -->
+      </ul>
+    </div>
+  </div>
+ 
+  <!-- Footer with small text at the bottom -->
+  <footer>
+    <p style="font-size: 12px; color: #777;">Made by Anirudh Bhamidipati</p>
+  </footer>
+ 
+  <script src="script.js"></script>
+</body>
 </html>
